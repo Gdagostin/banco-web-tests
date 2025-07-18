@@ -1,7 +1,9 @@
 describe('Login', () => {
-  it('Login com dados válidos deve permitir entrada no sistema', () => {
-    // Arrabge
+  beforeEach(() => {
+    // Arrange
     cy.visit('http://localhost:4000/')
+  });
+  it('Login com dados válidos deve permitir entrada no sistema', () => {
 
     // Act
     cy.get('#username').click().type('julio.lima')
@@ -12,8 +14,6 @@ describe('Login', () => {
     cy.contains('h4', 'Realizar Transferência').should('be.visible')
   })
   it('Login com dados inválidos deve exibir mensagem de erro', () => {
-    // Arrabge
-    cy.visit('http://localhost:4000/')
 
     // Act
     cy.get('#username').click().type('julio.lima')
